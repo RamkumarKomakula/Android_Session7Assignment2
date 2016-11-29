@@ -1,39 +1,53 @@
 class String
-{
-    static void Main(String[] args)
-    {
-        String str = "abcdefg";
-        String substr = "cde";
-        int index = IndexOf(str, substr);
-        console.WriteLine(index);
-        console.ReadLine();
-    }
-
-    private static int IndexOf(String str, String substr)
-    {
-        bool match;
-
-        for (int i = 0; i < str.Length - substr.Length + 1; ++i)
-        {
-            match = True;
-            for (int j = 0; j < substr.Length; ++j)
-            {
-                if (str[] != substr[])
-                {
-                    match = False;
-                    break;
-                }
-            }
-            if (match) return i;
-        }
-
-        return -1;
-    }
+int search(char[], char[]);
+ 
+int main() {
+   int loc;
+ 
+   char source[] = "maharashtra";
+   char target[] = "sht";
+ 
+   loc = search(source, target);
+ 
+   if (loc == -1)
+      System.out.println("\nNot found");
+   else
+      System.out.println("\nFound at location %d", loc + 1);
+ 
+   return (0);
+}
+ 
+int search(char src[], char str[]) {
+   int i, j, firstOcc;
+   i = 0, j = 0;
+ 
+   while (src[i] != '\0') {
+ 
+      while (src[i] != str[0] && src[i] != '\0')
+         i++;
+ 
+      if (src[i] == '\0')
+         return (-1);
+ 
+      firstOcc = i;
+ 
+      while (src[i] == str[j] && src[i] != '\0' && str[j] != '\0') {
+         i++;
+         j++;
+      }
+ 
+      if (str[j] == '\0')
+         return (firstOcc);
+      if (src[i] == '\0')
+         return (-1);
+ 
+      i = firstOcc + 1;
+      j = 0;
+   }
 }
 
 
 
 Output:
-       True.
-       
-      /*   "Here True means the Substring was found."   */
+		Found at location
+		678 
